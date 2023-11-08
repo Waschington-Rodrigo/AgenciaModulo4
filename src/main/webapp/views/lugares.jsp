@@ -1,119 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../assets/css/bootstrap.css">
-<link rel="stylesheet" href="../assets/css/estilo.css">
+<link rel="stylesheet" href="./assets/css/bootstrap.css">
+<link rel="stylesheet" href="./assets/css/estilo.css">
 
 <title>Lugares</title>
 </head>
 <body>
 	<div class="corpoPagina">
 		<jsp:include page="/components/menu.jsp">
-			<jsp:param value="../" name="home" />
-			<jsp:param value="../lugares" name="lugares" />
-			<jsp:param value="../promocoes" name="promocoes" />
-			<jsp:param value="../contato" name="contatos" />
-			<jsp:param value="../usuario" name="usuarios" />
-			<jsp:param value="../destino" name="destinos" />
-			<jsp:param value="../hospedagem" name="hospedagens" />
-			<jsp:param value="../passagem" name="passagens" />
-			<jsp:param value="../reserva" name="reservas" />
+			<jsp:param value="./" name="home" />
+			<jsp:param value="./lugares" name="lugares" />
+			<jsp:param value="./promocoes" name="promocoes" />
+			<jsp:param value="./contato" name="contatos" />
+			<jsp:param value="./usuario" name="usuarios" />
+			<jsp:param value="./destino" name="destinos" />
+			<jsp:param value="./hospedagem" name="hospedagens" />
+			<jsp:param value="./passagem" name="passagens" />
+			<jsp:param value="./reserva" name="reservas" />
 
 		</jsp:include>
 
-		<img id="fundo" src="../assets/img/fundo.jpg" alt="imagem de fundo">
+		<img id="fundo" src="./assets/img/fundo.jpg" alt="imagem de fundo">
 
 		<!--seção com cards com alguns destinos para escolha-->
 		<section id="cardDestino" class="container">
-			<div class="card-deck my-3">
-				<div class="card opacity my-3">
-					<img class="card-img-top" src="../assets/img/Viajou.com.png"
-						alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Fortaleza-CE</h5>
-						<p class="card-text">Conheça as praias de Iracema, Beira-Mar e
-							outras. Passeie pelas dunas de areia e muito mais.</p>
+			<c:forEach items="${ listaDestinos}" var="destino">
+				<div class="card-deck my-3">
+					<div class="card opacity my-3">
+						<img class="card-img-top" src="./assets/img/Viajou.com.png"
+							alt="Card image cap">
+						<div class="card-body">
+							<h5 class="card-title">${destino.cidade } / ${destino.estado }</h5>
+							<p class="card-text"><b>LocaL do Desembarque: </b> ${destino.localDestino }</p>
+							<p class="card-text"><b>Valor R$: </b> ${destino.valor }</p>
+						</div>
+						<div class="card-footer">
+							<a class="btn btn-sm btn-primary" href="./passagem-create">Quero
+								Conhecer</a>
+						</div>
 					</div>
-					<div class="card-footer">
-						<a class="btn btn-sm btn-primary" href="formulario.html">Quero
-							Conhecer</a>
-					</div>
-				</div>
-				<div class="card opacity my-3">
-					<img class="card-img-top" src="../assets/img/Viajou.com.png"
-						alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Nova Roma-GO</h5>
-						<p class="card-text">Venha ver de perto as mais belas
-							cachoeiras da região. Conheça a "Toca-do-macaco e seus atrativos.</p>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-sm btn-primary" href="formulario.html">Quero
-							Conhecer</a>
-					</div>
-				</div>
-				<div class="card opacity my-3">
-					<img class="card-img-top" src="../assets/img/Viajou.com.png"
-						alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Alto Paraiso-GO</h5>
-						<p class="card-text">Lugares como Chapada dos Veadeiros com
-							diversas cachoeiras, você só encontra aqui.</p>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-sm btn-primary" href="formulario.html">Quero
-							Conhecer</a>
-					</div>
-				</div>
-			</div>
 
-			<div class="card-deck opacity ">
-				<div class="card opacity my-3">
-					<img class="card-img-top" src="../assets/img/Viajou.com.png"
-						alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Brasilia-DF</h5>
-						<p class="card-text">Lago Paranoá, Catedral, Esplanada dos
-							Ministérios e a Praça dos Três Poderes são alguns dos atrativos
-							do DF.</p>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-sm btn-primary" href="formulario.html">Quero
-							Conhecer</a>
-					</div>
 				</div>
-				<div class="card opacity my-3">
-					<img class="card-img-top" src="../assets/img/Viajou.com.png"
-						alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Rio de Janeiro-RJ</h5>
-						<p class="card-text">Caminhe pelas calçadas de Copacabana e
-							conheça praias lindas.</p>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-sm btn-primary" href="formulario.html">Quero
-							Conhecer</a>
-					</div>
-				</div>
-				<div class="card opacity my-3">
-					<img class="card-img-top" src="../assets/img/Viajou.com.png"
-						alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Manaus-AM</h5>
-						<p class="card-text">Teatro Amazonas, Palacio Rio Negro e o
-							Museu da Amazônia são lugares que você deve conhecer.</p>
-					</div>
-					<div class="card-footer">
-						<a class="btn btn-sm btn-primary" href="formulario.html">Quero
-							Conhecer</a>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
 		</section>
-
 
 
 		<footer

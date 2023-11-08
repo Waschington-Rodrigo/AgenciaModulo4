@@ -1,16 +1,23 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
+
+import agencia.DAO.DestinoDAO;
+import agencia.model.Destino;
+import agencia.model.Hospedagem;
 
 @WebServlet(urlPatterns = { "/promocoes", "/contato", "/lugares" })
 public class NavControler extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+DestinoDAO ddao = new DestinoDAO();
+Destino destino = new Destino();
 	public NavControler() {
 		super();
 	}
@@ -51,7 +58,10 @@ public class NavControler extends HttpServlet {
 
 	protected void pageLugares(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		response.sendRedirect("./views/lugares.jsp");
+		List<Destino> lista = ddao.getDestinos();
+
+		request.setAttribute("listaDestinos", lista);
+		RequestDispatcher rd = request.getRequestDispatcher("./views/lugares.jsp");
+		rd.forward(request, response);
 	}
 }
