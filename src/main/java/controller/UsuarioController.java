@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+
 @WebServlet(urlPatterns = { "/usuario", "/usuario-create", "/usuario-delete", "/usuario-update" })
 public class UsuarioController extends HttpServlet {
 	private static final long serialVersionUID = 1L;

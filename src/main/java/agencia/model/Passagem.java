@@ -14,6 +14,22 @@ public class Passagem {
     private Usuario usuario;
     private Destino destino;
     
+    
+	public Passagem(int id, int pacotePromo, Date dataViagem, Usuario usuario, Destino destino) {
+		super();
+		this.id = id;
+		this.pacotePromo = pacotePromo;
+		this.dataViagem = dataViagem;
+		this.usuario = usuario;
+		this.destino = destino;
+	}
+	
+	
+	public Passagem() {
+		super();
+	}
+
+
 	public int getId() {
 		return id;
 	}

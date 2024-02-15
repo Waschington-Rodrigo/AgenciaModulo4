@@ -11,7 +11,7 @@ import java.util.Date;
  * @author Waschington Rodrigo
  */
 public class Reserva {
-    	private int id;
+	private int id;
 	private int qtdDias;
 	private Date dataReserva;
 	private int pacotePromo;
@@ -79,5 +79,4 @@ public class Reserva {
 		this.usuario = usuario;
 	}
 
-	
 }

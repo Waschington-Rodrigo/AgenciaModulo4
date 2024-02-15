@@ -23,7 +23,7 @@ function getDestino(param){
 			<jsp:param value="./promocoes" name="promocoes" />
 			<jsp:param value="./contato" name="contatos" />
 			<jsp:param value="./usuario" name="usuarios" />
-			<jsp:param value="./passagem" name="passagems" />
+			<jsp:param value="./destino" name="destinos" />
 			<jsp:param value="./hospedagem" name="hospedagens" />
 			<jsp:param value="./passagem" name="passagens" />
 			<jsp:param value="./reserva" name="reservas" />
